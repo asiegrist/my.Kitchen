@@ -1,0 +1,35 @@
+<div id="registration">
+	<h1>Inscription</h1>
+	<form name="registrationForm" class="registration-form" ng-controller="UserRegistrationCtrl as user" novalidate>
+		<label>Pseudo</label> * : <input type="text" name="nickname" ng-model="user.nickname" ng-minlength="3" ng-maxlength="16" required/>
+		<span class="error" ng-show="(registrationForm.$submitted || registrationForm.nickname.$dirty) && registrationForm.nickname.$error.required"> Veuillez saisir votre pseudo</span>
+		<span class="error" ng-show="registrationForm.nickname.$error.minlength || registrationForm.nickname.$error.maxlength"> Doit contenir entre 3-16 caractères</span><br />
+		
+		<label>Email</label> * : <input type="email" name="email" ng-model="user.email" required />
+		<span class="error" ng-show="(registrationForm.$submitted || registrationForm.email.$dirty) && registrationForm.email.$error.required"> Veuillez saisir votre email</span>
+		<span class="error" ng-show="(registrationForm.$submitted || registrationForm.email.$dirty) && registrationForm.email.$error.email"> Veuillez saisir un email valide</span><br />
+		
+		<label>Mot de passe</label> * : <input type="password" name="password" ng-model="user.password" ng-minlength="6" ng-maxlength="16" required />
+		<span class="error" ng-show="(registrationForm.$submitted || registrationForm.password.$dirty) && registrationForm.password.$error.required"> Veuillez saisir votre mot de passe</span>
+		<span class="error" ng-show="registrationForm.password.$error.minlength || registrationForm.password.$error.maxlength"> Doit contenir entre 6-16 caractères</span><br />
+		
+		
+		<label>Mot de passe verification</label> * : <input type="password" name="passwordCheck" ng-model="user.passwordCheck" match-password="password" required />
+		<span class="error" ng-show="(registrationForm.$submitted || registrationForm.passwordCheck.$dirty) && registrationForm.passwordCheck.$error.required"> Veuillez confimer votre mot de passe</span>
+		<span class="error" ng-show="registrationForm.passwordCheck.$error.passwordMatch">Les mots de passe ne correspondent pas</span><br />
+		
+		<!--Amélioration de la validation de la date de naissance à faire (interval valide etc)-->
+		<label>Date de naissance</label> * : <input type="date" name="birthdate" ng-model="user.birthdate" required />
+		<span class="error" ng-show="(registrationForm.$submitted || registrationForm.birthdate.$touched) && registrationForm.birthdate.$error.required"> Veuillez saisir votre date de naissance</span><span class="error" ng-show="(registrationForm.$submitted || registrationForm.birthdate.$touched) && registrationForm.birthdate.$error.date"> Veuillez saisir une date de naissance valide</span><br/>
+		
+		<label>Sexe</label> : 
+		<input type="radio" name="gender" ng-model="user.gender" value="female" /> Femme
+		<input type="radio" name="gender" ng-model="user.gender" value="male" /> Homme <br/>
+		
+		<label>Condition d'utilisations</label> * : <input type="checkbox" name="agreement" ng-model="user.agreement" required>
+		<span class="error" ng-show="(registrationForm.$submitted || registrationForm.agreement.$dirty) && registrationForm.agreement.$error.required"> Veuillez accepter les conditions d'utilisations</span><br />
+		
+		<label>Inscription à la newsletter</label> : <input type="checkbox" name="newsletter" ng-model="user.newsletter"><br/>
+		
+		 <input type="submit" ng-click="user.createUser()" value="Valider" />
+  </form>

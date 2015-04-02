@@ -76,3 +76,12 @@ ul.specs dt {
 h1 {
   border-bottom: 1px solid gray;
 }
+
+/** Form View **/
+.registration-form .ng-dirty.ng-invalid{
+	background: #FA787E;
+}
+
+.registration-form .ng-dirty.ng-valid{
+	background: lightgreen;
+}
