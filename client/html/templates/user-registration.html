@@ -3,7 +3,8 @@
 	<form name="registrationForm" class="registration-form" ng-controller="UserRegistrationCtrl as user" novalidate>
 		<label>Pseudo</label> * : <input type="text" name="nickname" ng-model="user.nickname" ng-minlength="3" ng-maxlength="16" required/>
 		<span class="error" ng-show="(registrationForm.$submitted || registrationForm.nickname.$dirty) && registrationForm.nickname.$error.required"> Veuillez saisir votre pseudo</span>
-		<span class="error" ng-show="registrationForm.nickname.$error.minlength || registrationForm.nickname.$error.maxlength"> Doit contenir entre 3-16 caractères</span><br />
+		<span class="error" ng-show="registrationForm.nickname.$error.minlength || registrationForm.nickname.$error.maxlength"> Doit contenir entre 3-16 caractères</span>
+		<span class="error" ng-show="registrationForm.nickname.$error.used"> Ce pseudo est déjà utilisé</span><br />
 		
 		<label>Email</label> * : <input type="email" name="email" ng-model="user.email" required />
 		<span class="error" ng-show="(registrationForm.$submitted || registrationForm.email.$dirty) && registrationForm.email.$error.required"> Veuillez saisir votre email</span>
@@ -32,4 +33,5 @@
 		<label>Inscription à la newsletter</label> : <input type="checkbox" name="newsletter" ng-model="user.newsletter"><br/>
 		
 		 <input type="submit" ng-click="user.createUser()" value="Valider" />
+		 {{registrationForm.$valid}} + {{registrationForm.nickname.$error.used}}
   </form>

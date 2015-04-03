@@ -78,10 +78,10 @@ h1 {
 }
 
 /** Form View **/
-.registration-form .ng-dirty.ng-invalid{
+.registration-form .ng-dirty.ng-invalid, .connection-form .ng-dirty.ng-invalid{
 	background: #FA787E;
 }
 
-.registration-form .ng-dirty.ng-valid{
+.registration-form .ng-dirty.ng-valid, .connection-form .ng-dirty.ng-valid{
 	background: lightgreen;
 }

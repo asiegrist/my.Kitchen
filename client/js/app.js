@@ -26,6 +26,10 @@ myKitchen.config(['$routeProvider',
 		  templateUrl: 'html/templates/user-connection.html',
 		  controller: 'UserConnectionCtrl',
 	  })
+	  .when('/user/profile/:userNickname', {
+		  templateUrl: 'html/templates/user-profile',
+		  controller: 'UserProfileCtrl',
+	  })
       .otherwise({
         redirectTo: '/user/connection',
       });
