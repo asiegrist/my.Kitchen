@@ -1,22 +1,22 @@
 <div id="connection">
-	<h1>J'ai déjà un compte sur MyKitchen</h1>
-	<form name="connectionForm" class="connection-form" ng-controller="UserConnectionCtrl as connection" novalidate>
-		
-		<span class="error" ng-show="connectionForm.$submitted && connectionForm.$error.combination"> La combinaison pseudo/mot de passe est invalide</span><br/>
-	
-		<label>Votre pseudo</label> : 
-		<input type="text" name="nickname" ng-model="connection.nickname" required />
-		<span class="error" ng-show="(connectionForm.$submitted || connectionForm.nickname.$dirty) && connectionForm.nickname.$error.required"> Veuillez saisir votre pseudo</span><br/>
-		
-		<label>Votre mot de passe</label> : 
-		<input type="password" name="password" ng-model="connection.password" required />
-		<span class="error" ng-show="(connectionForm.$submitted || connectionForm.password.$dirty) && connectionForm.password.$error.required"> Veuillez saisir votre mot de passe</span><br/>
-		
-		<input type="submit" ng-click="connection.login()" value="Se connecter" />
-	</form>
+  <h1>J'ai déjà un compte sur MyKitchen</h1>
+  <form name="connectionForm" class="connection-form" ng-controller="UserConnectionController as connection" novalidate>
+    
+    <span class="error" ng-show="connectionForm.$submitted && connectionForm.$error.combination"> La combinaison pseudo/mot de passe est invalide</span><br/>
+  
+    <label>Votre pseudo</label> : 
+    <input type="text" name="nickname" ng-model="connection.nickname" required />
+    <span class="error" ng-show="(connectionForm.$submitted || connectionForm.nickname.$dirty) && connectionForm.nickname.$error.required"> Veuillez saisir votre pseudo</span><br/>
+    
+    <label>Votre mot de passe</label> : 
+    <input type="password" name="password" ng-model="connection.password" required />
+    <span class="error" ng-show="(connectionForm.$submitted || connectionForm.password.$dirty) && connectionForm.password.$error.required"> Veuillez saisir votre mot de passe</span><br/>
+    
+    <input type="submit" ng-click="connection.login()" value="Se connecter" />
+  </form>
 </div>
 <br/>
 <div>
-	<h1>Je n'ai pas encore de compte sur MyKitchen</h1>
-	<a href="#/user/registration">Créer mon compte</a>
+  <h1>Je n'ai pas encore de compte sur MyKitchen</h1>
+  <a href="#/user/registration">Créer mon compte</a>
 </div>
